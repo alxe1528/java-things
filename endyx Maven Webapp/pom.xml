@@ -5,15 +5,38 @@
   <artifactId>endyx</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>endyx Maven Webapp</name>
+  <name>endyx</name>
   <url>http://maven.apache.org</url>
+  
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>7</maven.compiler.source>
+		<maven.compiler.target>7</maven.compiler.target>
+		<log4j.level>debug</log4j.level>
+		<maven.test.skip>true</maven.test.skip>
+		
+		<spring.Version>3.2.13.RELEASE</spring.Version>
+		<quartz.Version>2.2.1</quartz.Version>
+	</properties>
+  
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
+      <version>4.8.2</version>
     </dependency>
+    <dependency>
+	    <groupId>org.quartz-scheduler</groupId>
+	    <artifactId>quartz</artifactId>
+	    <version>${quartz.Version}</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.quartz-scheduler</groupId>
+	    <artifactId>quartz-jobs</artifactId>
+	    <version>${quartz.Version}</version>
+	</dependency>
+    
     <dependency>
     	<groupId>org.apache.mina</groupId>
     	<artifactId>mina-core</artifactId>
@@ -42,17 +65,60 @@
     
     
     <dependency>
-		<groupId>javax.servlet</groupId>
-		<artifactId>servlet-api</artifactId>
-		<version>2.5</version>
-		<scope>provided</scope>
-	</dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
     <dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-webmvc</artifactId>
-    	<version>3.2.1.RELEASE</version>
+    	<version>${spring.Version}</version>
+    </dependency>
+    
+    <dependency>   
+	   <groupId>org.springframework</groupId>   
+	   <artifactId>spring-context-support</artifactId>
+	   <version>${spring.Version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-tx</artifactId>
+		<version>${spring.Version}</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>org.aspectj</groupId>
+        <artifactId>aspectjweaver</artifactId>
+        <version>1.7.4</version>
+    </dependency>
+	
+	
+    <dependency>  
+          <groupId>org.apache.activemq</groupId>  
+          <artifactId>activemq-core</artifactId>  
+          <version>5.5.0</version>  
+	</dependency>
+	
+	<!-- JMS -->
+    <dependency>
+    	<groupId>jboss</groupId>
+    	<artifactId>jbossall-client</artifactId>
+    	<version>4.2.2.GA</version>
     </dependency>
   </dependencies>
+  
   <build>
 	<plugins>  
 		<plugin>  

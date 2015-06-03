@@ -1,2 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/test/java/t/quartz2/Console.java=UTF-8
+encoding//src/test/java/t/quartz2/HelloJob.java=gbk
+encoding//src/test/java/t/quartz2/quartz.properties=gbk
 encoding/<project>=UTF-8

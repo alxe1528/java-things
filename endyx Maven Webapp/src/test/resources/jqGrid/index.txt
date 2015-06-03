@@ -1,0 +1,65 @@
+jqgrid实现级联组合框
+如何实现jqgrid的级联组合框呢?就是类似:先选中"国家"组合框、"城市"组合框的内容根据"国家"组合框的内容而改变。在网上查了一下、有人提出来过、但无人解决。想了半天终于解决了。
+   基本思路:
+  1 国家对应的城市肯定要用一个变量保存起来。类如:
+    var citys={
+    {'contry':'china',
+     'city':'beijing'
+    },
+    {'contry':'china',
+     'city':'shanghai'
+    },
+    {'contry':'china',
+     'city':'lanjing'
+    },
+    {'contry':'americal',
+     'city':'newyouk'
+    },
+    {'contry':'americal',
+     'city':'warshonton'
+    }
+   }  
+   2 jqgrid点击城市单元格时、肯定要先根据columnModel中的editoptions中的value属性(也就是select的选项)生成select组合框。要在select控件生成之前改变editoptions的value属性、select中的选项值也就改变了。用调试跟踪的方法、我发现这个功能在jqgrid中的editCell函数中。修改这个函数
+原来的函数:
+$.jgrid.extend({
+  editCell : function (iRow,iCol, ed){
+     return this.each(function (){
+var $t = this, nm, tmp,cc, cm;
+if (!$t.grid || $t.p.cellEdit !== true|| ) {return;}
+改为:
+$.jgrid.extend({
+  editCell : function (iRow,iCol, ed){
+     return this.each(function (){
+var $t = this, nm, tmp,cc, cm,flg;
+if (beforeFocus !='undefind'){
+   flg=beforeFocus(iRow,iCol);
+}if (!$t.grid || $t.p.cellEdit !== true|| !flg ) {return;}
+说明:
+  1 增加了一个flg变量、用来保存自定义函数beforeFocus的返回值、假如没有选中国家
+则editCell函数返回、城市组合框就不能输入了
+  2修改colunmModel的任务就交给beforeFocus函数了。
+再来看beforeFocus函数
+function beforeFocus(iRow,iCol){
+  if (iCol==2){
+     var ids=$("#gridTable").getDataIDs();
+     //取得选择行的数据
+     var rdata=$("#gridTable").getRowData (ids[iRow])[0];
+    //取得选择的国家值
+     var v_country=rdata.country
+     if (v_country==""){
+alert("请首先输入国家!")
+return false;
+     }
+     //生成columnModel的editoptions的value的字符串
+     var selectStr=""
+     $.each(citys,function(i,rowdt){
+       if  (rowdt.country==v_country){
+           selectStr+=";"+rowdt.city;
+       }
+     });
+     //设置columnModel
+     $("#gridTable").setColProp("city",{editoptions:{value:selectStr.substr(1)}});
+}
+  return true;
+}
+测试ok! 

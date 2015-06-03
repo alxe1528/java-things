@@ -1,0 +1,23 @@
+
+<!-- ��①-1:JNDI数据源-->
+<Resource name="jdbc/topicDS" auth="Container" type="javax.sql.DataSource"  
+	factory="org.objectweb.jndi.DataSourceFactory"
+	username="root" password="1234"
+	driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3309/topicdb"
+	maxActive="30" maxIdle="30"
+/>
+
+
+<!-- ��①-2:JNDI数据源-->
+<Resource name="jdbc/postDS" auth="Container" type="javax.sql.DataSource"
+	factory="org.objectweb.jndi.DataSourceFactory"
+	username="root" password="1234"
+	driverClassName="com.mysql.jdbc.Driver"
+	url="jdbc:mysql://localhost:3309/postdb"
+	maxActive="30" maxIdle="30"
+/>
+
+
+<!-- ②JOTM JTA事务管理 ��JOTM JTA�������-->
+<Transaction factory="org.objectweb.jotm.UserTransactionFactory" jotm.timeout="60"/>

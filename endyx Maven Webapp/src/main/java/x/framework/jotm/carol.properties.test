@@ -1,0 +1,18 @@
+carol.start.rmi=false 
+carol.start.ns=false 
+#JNDI调用协议 
+carol.protocols=jrmp
+
+#不使用CAROL JNDI封装器 
+carol.start.jndi=false
+ 
+#不启动命名服务器 
+carol.start.ns=false
+
+
+# 本地RMI调用 
+#carol.jvm.rmi.local.call=true
+
+# 命名工厂类 
+#carol.jndi.java.naming.factory.url.pkgs=org.apache.naming
+#carol.jndi.java.naming.factory.url.pkgs=org.mortbay.naming  

@@ -1,11 +1,12 @@
 package t.net.mina.nio.codec;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoSession;
 import org.apache.mina.filter.codec.ProtocolDecoderOutput;
 import org.apache.mina.filter.codec.demux.MessageDecoder;
 import org.apache.mina.filter.codec.demux.MessageDecoderResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import t.net.mina.nio.msg.IMsg;
 
@@ -17,7 +18,7 @@ import t.net.mina.nio.msg.IMsg;
  */
 public class ProtocolDecoderAdapter implements MessageDecoder {
 	
-	private static Logger log=Logger.getLogger(ProtocolDecoderAdapter.class);
+	private static Logger log=LoggerFactory.getLogger(ProtocolDecoderAdapter.class);
 	
 	private IDecoder decoder;
 	

@@ -4,11 +4,12 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.common.ByteBuffer;
 import org.apache.mina.common.IoSession;
 import org.apache.mina.filter.codec.ProtocolEncoderOutput;
 import org.apache.mina.filter.codec.demux.MessageEncoder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import t.net.mina.nio.msg.IMsg;
 
@@ -20,7 +21,7 @@ import t.net.mina.nio.msg.IMsg;
  */
 public class ProtocolEncoderAdapter implements MessageEncoder {
 	
-	private static Logger log=Logger.getLogger(ProtocolEncoderAdapter.class);
+	private static Logger log=LoggerFactory.getLogger(ProtocolEncoderAdapter.class);
 	
 	private IEncoder encoder;
 	

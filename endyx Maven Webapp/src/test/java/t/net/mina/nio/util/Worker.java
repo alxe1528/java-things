@@ -1,7 +1,8 @@
 package t.net.mina.nio.util;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.common.IoSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import t.net.mina.nio.handle.IHandler;
 import t.net.mina.nio.msg.IMsg;
@@ -14,7 +15,7 @@ import t.net.mina.nio.msg.IMsg;
  */
 public class Worker implements Runnable {
 	
-	private static Logger log=Logger.getLogger(Worker.class);
+	private static Logger log=LoggerFactory.getLogger(Worker.class);
 	
 	private IHandler handler;
 	

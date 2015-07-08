@@ -1,8 +1,9 @@
 package t.net.mina.nio.handle;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.common.IoHandlerAdapter;
 import org.apache.mina.common.IoSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import t.net.mina.nio.msg.IMsg;
 import t.net.mina.nio.util.IThreadPool;
@@ -16,7 +17,7 @@ import t.net.mina.nio.util.Worker;
  */
 public class ProtocolHandlerAdapter extends IoHandlerAdapter {
 	
-	private static Logger log=Logger.getLogger(ProtocolHandlerAdapter.class);
+	private static Logger log=LoggerFactory.getLogger(ProtocolHandlerAdapter.class);
 	
 	private IHandlerFactory handlerFactory;
 	

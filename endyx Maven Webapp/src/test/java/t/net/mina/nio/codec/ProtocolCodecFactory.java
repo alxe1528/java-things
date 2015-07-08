@@ -1,7 +1,8 @@
 package t.net.mina.nio.codec;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.filter.codec.demux.DemuxingProtocolCodecFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 编解码工厂.
@@ -11,7 +12,7 @@ import org.apache.mina.filter.codec.demux.DemuxingProtocolCodecFactory;
  */
 public class ProtocolCodecFactory extends DemuxingProtocolCodecFactory {
 	
-	private static Logger log=Logger.getLogger(ProtocolCodecFactory.class);
+	private static Logger log=LoggerFactory.getLogger(ProtocolCodecFactory.class);
 	
 	private ICodecFactory codecFactory;
 	

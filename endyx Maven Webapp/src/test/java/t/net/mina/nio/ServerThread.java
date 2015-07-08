@@ -2,11 +2,12 @@ package t.net.mina.nio;
 
 import java.net.InetSocketAddress;
 
-import org.apache.log4j.Logger;
 import org.apache.mina.common.IoAcceptor;
 import org.apache.mina.filter.codec.ProtocolCodecFilter;
 import org.apache.mina.transport.socket.nio.SocketAcceptor;
 import org.apache.mina.transport.socket.nio.SocketAcceptorConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import t.net.mina.nio.codec.DefaultCodecFactory;
 import t.net.mina.nio.codec.ICodecFactory;
@@ -23,7 +24,7 @@ import t.net.mina.nio.handle.ProtocolHandlerAdapter;
  */
 public class ServerThread implements Runnable {
 	
-	private static Logger log=Logger.getLogger(ServerThread.class);
+	private static Logger log=LoggerFactory.getLogger(ServerThread.class);
 	
 	private ICodecFactory codecFactory;
 	

@@ -1,10 +1,11 @@
 package x.framework.hibernate;
 
-import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -16,7 +17,7 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 public class HibernateStruts2Util {
 
-	private static final Logger LOG = Logger.getLogger(HibernateStruts2Util.class);
+	private static final Logger LOG = LoggerFactory.getLogger(HibernateStruts2Util.class);
 
 	public static final ThreadLocal MAP = new ThreadLocal();
 	
